@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Treasure Store</title>
+<script>
+setInterval(() => {
+    console.log('Refreshing page...');
+    location.reload();
+}, 2000);
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #00ffcc;
+    min-height: 100vh;
+}
+
+.template-section {
+    background: rgba(255, 107, 53, 0.1);
+    border: 2px solid #ff6b35;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0 0 20px #00ffcc;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: rgba(0, 255, 204, 0.1);
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+}
+
+.product-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #ff6b35;
+}
+
+.product-description {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+.category {
+    margin-bottom: 50px;
+}
+
+.category-title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff6b35;
+    text-shadow: 0 0 10px #ff6b35;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🚀 SPACE TREASURE EMPORIUM 🌌</h1>
+        <p class="subtitle">Discover the Universe's Greatest Collectibles</p>
+        
+        <div class="template-section">
+            <h2 style="color: #ff6b35; margin: 30px 0 20px 0;">📋 Product Templates</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3 class="product-title">[PRODUCT NAME]</h3>
+                    <p class="product-description">[Detailed product description highlighting key features and benefits]</p>
+                    <p class="price">$[XX.XX]</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+                
+                <div class="product-card">
+                    <h3 class="product-title">Template: Space Item</h3>
+                    <p class="product-description">Replace this text with your product description. Include materials, dimensions, and special features.</p>
+                    <p class="price">$0.00</p>
+                    <button class="btn">Customize</button>
+                </div>
+                
+                <div class="product-card">
+                    <h3 class="product-title">Quick Template</h3>
+                    <p class="product-description">Copy this card structure for new products. Update title, description, and price.</p>
+                    <p class="price">$[PRICE]</p>
+                    <button class="btn">Use Template</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="category">
+        <h2 class="category-title">🛸 Space Exploration Merchandise</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">NASA Mission Patches Collection</h3>
+                <p class="product-description">Authentic replica patches from historic space missions including Apollo, Shuttle, and ISS programs.</p>
+                <p class="price">$49.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Astronaut Food Kit</h3>
+                <p class="product-description">Experience space dining with freeze-dried ice cream, fruits, and meals used by real astronauts.</p>
+                <p class="price">$29.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Space Shuttle Model</h3>
+                <p class="product-description">Detailed 1:144 scale model of the Space Shuttle with removable payload bay doors.</p>
+                <p class="price">$89.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2 class="category-title">🎬 Sci-Fi Collectibles</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">Lightsaber Replica</h3>
+                <p class="product-description">Premium metal hilt with LED blade and authentic sound effects from the galaxy far, far away.</p>
+                <p class="price">$199.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Enterprise NCC-1701 Model</h3>
+                <p class="product-description">Highly detailed starship model with working lights and authentic bridge sounds.</p>
+                <p class="price">$149.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Alien Artifact Prop</h3>
+                <p class="product-description">Movie-quality replica of mysterious alien technology with glowing elements.</p>
+                <p class="price">$79.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2 class="category-title">🔭 Astronomy Equipment</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">Beginner Telescope</h3>
+                <p class="product-description">70mm aperture refractor telescope perfect for viewing planets, moon craters, and star clusters.</p>
+                <p class="price">$129.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Star Chart Set</h3>
+                <p class="product-description">Rotating planisphere and constellation maps for year-round stargazing adventures.</p>
+                <p class="price">$24.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Meteorite Fragment</h3>
+                <p class="product-description">Genuine meteorite specimen with certificate of authenticity and display case.</p>
+                <p class="price">$59.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2 class="category-title">🎨 Space-Themed Artwork</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">Galaxy Nebula Prints</h3>
+                <p class="product-description">High-resolution Hubble telescope images printed on premium canvas with cosmic frames.</p>
+                <p class="price">$39.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Solar System Mobile</h3>
+                <p class="product-description">Handcrafted planetary mobile with accurate scale and orbital mechanics for home or office.</p>
+                <p class="price">$69.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Retro Space Posters</h3>
+                <p class="product-description">Vintage-style travel posters featuring Mars, Europa, and other exotic destinations.</p>
+                <p class="price">$19.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2 class="category-title">📚 Educational Space Materials</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">Rocket Science Kit</h3>
+                <p class="product-description">Build and launch your own model rockets while learning physics and engineering principles.</p>
+                <p class="price">$44.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Space Encyclopedia</h3>
+                <p class="product-description">Comprehensive guide to space exploration, astronomy, and the latest discoveries in the cosmos.</p>
+                <p class="price">$34.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Planetarium Projector</h3>
+                <p class="product-description">Transform any room into a starry night sky with this home planetarium projector.</p>
+                <p class="price">$89.99</p>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

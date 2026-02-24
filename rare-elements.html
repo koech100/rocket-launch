@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rare Elements - Space Treasure Emporium</title>
+<script>
+let lastModified = '';
+setInterval(async () => {
+    try {
+        const response = await fetch(window.location.href, { method: 'HEAD' });
+        const modified = response.headers.get('last-modified');
+        if (lastModified && modified !== lastModified) {
+            location.reload();
+        }
+        lastModified = modified;
+    } catch (e) {}
+}, 1000);
+
+function createMatrix() {
+    const matrix = document.getElementById('matrix');
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    
+    for (let i = 0; i < 50; i++) {
+        const column = document.createElement('div');
+        column.className = 'matrix-column';
+        column.style.left = Math.random() * 100 + '%';
+        column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        column.style.animationDelay = Math.random() * 2 + 's';
+        
+        let text = '';
+        for (let j = 0; j < 20; j++) {
+            text += chars[Math.floor(Math.random() * chars.length)] + '<br>';
+        }
+        column.innerHTML = text;
+        matrix.appendChild(column);
+    }
+}
+
+createMatrix();
+</script>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1920url('dbbff64220007dfca8a10d1c3957aab2-700.jpg')h=1080url('dbbff64220007dfca8a10d1c3957aab2-700.jpg')fit=crop') center/cover no-repeat;
+    animation: shipMove 6s ease-in-out infinite;
+    z-index: 1;
+
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -100%;
+    color: #00ff41;
+    font-family: monospace;
+    font-size: 14px;
+    animation: matrix-fall linear infinite;
+}
+
+@keyframes matrix-fall {
+    to { top: 100%; }
+}
+}
+
+@keyframes shipMove {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    75% { transform: translateY(10px) rotate(-1deg); }
+}
+
+#scene {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+}
+
+.nav-bar {
+    background: rgba(0,0,0,0.9);
+    padding: 15px 20px;
+    border-bottom: 2px solid #00ff7f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-btn {
+    background: linear-gradient(45deg, #00ff7f, #2e7d32);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    background: rgba(0,0,0,0.9);
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #00ff7f;
+    color: #00ffcc;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: rgba(0,255,127,0.1);
+    border: 2px solid #00ff7f;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    color: #00ff7f;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    color: #ffd700;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.add-to-cart {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.add-to-cart:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="background">
+    <div class="matrix-rain" id="matrix"></div>
+</div>
+
+<div id="scene">
+    <div class="nav-bar">
+        <h2 style="color: #00ff7f; margin: 0;">💎 Rare Elements Collection</h2>
+        <div>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+            <a href="cart.html" class="nav-btn" style="margin-left: 10px;">🛒 Cart (<span id="cart-count">0</span>)</a>
+            <select onchange="window.location.href=this.value" style="background: #2e7d32; color: white; border: none; padding: 10px; border-radius: 5px; margin-left: 10px;">
+                <option value="">Switch Collection</option>
+                <option value="space-exploration.html">🛸 Space Exploration</option>
+                <option value="alien-artifacts.html">👽 Alien Artifacts</option>
+                <option value="cosmic-weapons.html">⚔️ Cosmic Weapons</option>
+                <option value="stellar-maps.html">🗺️ Stellar Navigation</option>
+                <option value="time-artifacts.html">⏰ Temporal Artifacts</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 style="color: #00ff7f; text-align: center; font-size: 2.5em; margin-bottom: 10px;">💎 Rare Elements</h1>
+        <p style="text-align: center; color: #ffd700; font-size: 1.2em;">Precious materials from across the cosmos</p>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">Unobtainium Ingot (1kg)</h3>
+                <p>The rarest element in the universe. Essential for faster-than-light travel and energy generation.</p>
+                <p class="product-price">$999,999.99</p>
+                <button class="add-to-cart" onclick="addToCart('Unobtainium Ingot', 999999.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Dark Matter Sample (10g)</h3>
+                <p>Contained dark matter in quantum suspension field. Powers the most advanced alien technologies.</p>
+                <p class="product-price">$2,500,000.00</p>
+                <button class="add-to-cart" onclick="addToCart('Dark Matter Sample', 2500000.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Quantum Crystal Matrix</h3>
+                <p>Self-organizing crystal that exists in multiple dimensions simultaneously. Glows with inner light.</p>
+                <p class="product-price">$750,000.00</p>
+                <button class="add-to-cart" onclick="addToCart('Quantum Crystal Matrix', 750000.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Neutronium Fragment (1g)</h3>
+                <p>Ultra-dense matter from neutron star core. Weighs approximately 1 billion tons per teaspoon.</p>
+                <p class="product-price">$50,000,000.00</p>
+                <button class="add-to-cart" onclick="addToCart('Neutronium Fragment', 50000000.00)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Tachyon Particle Collector</h3>
+                <p>Harvests faster-than-light particles for temporal research. Includes containment field generator.</p>
+                <p class="product-price">$15,999,999.99</p>
+                <button class="add-to-cart" onclick="addToCart('Tachyon Particle Collector', 15999999.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Exotic Matter Stabilizer</h3>
+                <p>Keeps negative energy density matter stable for wormhole construction and maintenance.</p>
+                <p class="product-price">$89,999,999.99</p>
+                <button class="add-to-cart" onclick="addToCart('Exotic Matter Stabilizer', 89999999.99)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('spaceCart')) || [];
+let addedItems = new Set();
+
+function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+}
+
+function addToCart(name, price) {
+    const itemKey = `${name}-${price}`;
+    
+    if (addedItems.has(itemKey)) {
+        return;
+    }
+    
+    cart.push({name, price, id: Date.now()});
+    addedItems.add(itemKey);
+    localStorage.setItem('spaceCart', JSON.stringify(cart));
+    
+    const buttons = document.querySelectorAll('.add-to-cart');
+    buttons.forEach(btn => {
+        if (btn.onclick.toString().includes(name)) {
+            btn.textContent = 'Added to Cart';
+            btn.style.background = '#666';
+            btn.disabled = true;
+        }
+    });
+    
+    updateCartCount();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    cart.forEach(item => {
+        addedItems.add(`${item.name}-${item.price}`);
+        const buttons = document.querySelectorAll('.add-to-cart');
+        buttons.forEach(btn => {
+            if (btn.onclick.toString().includes(item.name)) {
+                btn.textContent = 'Added to Cart';
+                btn.style.background = '#666';
+                btn.disabled = true;
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stellar Navigation - Space Treasure Emporium</title>
+<script>
+let lastModified = '';
+setInterval(async () => {
+    try {
+        const response = await fetch(window.location.href, { method: 'HEAD' });
+        const modified = response.headers.get('last-modified');
+        if (lastModified && modified !== lastModified) {
+            location.reload();
+        }
+        lastModified = modified;
+    } catch (e) {}
+}, 1000);
+
+function createMatrix() {
+    const matrix = document.getElementById('matrix');
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    
+    for (let i = 0; i < 50; i++) {
+        const column = document.createElement('div');
+        column.className = 'matrix-column';
+        column.style.left = Math.random() * 100 + '%';
+        column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        column.style.animationDelay = Math.random() * 2 + 's';
+        
+        let text = '';
+        for (let j = 0; j < 20; j++) {
+            text += chars[Math.floor(Math.random() * chars.length)] + '<br>';
+        }
+        column.innerHTML = text;
+        matrix.appendChild(column);
+    }
+}
+
+createMatrix();
+</script>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1920url('dbbff64220007dfca8a10d1c3957aab2-700.jpg')h=1080url('dbbff64220007dfca8a10d1c3957aab2-700.jpg')fit=crop') center/cover no-repeat;
+    animation: shipMove 6s ease-in-out infinite;
+    z-index: 1;
+
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -100%;
+    color: #00ff41;
+    font-family: monospace;
+    font-size: 14px;
+    animation: matrix-fall linear infinite;
+}
+
+@keyframes matrix-fall {
+    to { top: 100%; }
+}
+}
+
+@keyframes shipMove {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    75% { transform: translateY(10px) rotate(-1deg); }
+}
+
+#scene {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+}
+
+.nav-bar {
+    background: rgba(0,0,0,0.9);
+    padding: 15px 20px;
+    border-bottom: 2px solid #ffd700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-btn {
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    background: rgba(0,0,0,0.9);
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #ffd700;
+    color: #00ffcc;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: rgba(255,215,0,0.1);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    color: #ffd700;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    color: #ffd700;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.add-to-cart {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.add-to-cart:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="background">
+    <div class="matrix-rain" id="matrix"></div>
+</div>
+
+<div id="scene">
+    <div class="nav-bar">
+        <h2 style="color: #ffd700; margin: 0;">🗺️ Stellar Navigation Collection</h2>
+        <div>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+            <a href="cart.html" class="nav-btn" style="margin-left: 10px;">🛒 Cart (<span id="cart-count">0</span>)</a>
+            <select onchange="window.location.href=this.value" style="background: #ff8c00; color: white; border: none; padding: 10px; border-radius: 5px; margin-left: 10px;">
+                <option value="">Switch Collection</option>
+                <option value="space-exploration.html">🛸 Space Exploration</option>
+                <option value="alien-artifacts.html">👽 Alien Artifacts</option>
+                <option value="cosmic-weapons.html">⚔️ Cosmic Weapons</option>
+                <option value="rare-elements.html">💎 Rare Elements</option>
+                <option value="time-artifacts.html">⏰ Temporal Artifacts</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 style="color: #ffd700; text-align: center; font-size: 2.5em; margin-bottom: 10px;">🗺️ Stellar Navigation</h1>
+        <p style="text-align: center; color: #ffd700; font-size: 1.2em;">Charts and guides for interstellar travel</p>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">Galactic Star Chart - Milky Way</h3>
+                <p>Complete 3D holographic map of our galaxy with real-time stellar positions and hyperspace routes.</p>
+                <p class="product-price">$1,299.99</p>
+                <button class="add-to-cart" onclick="addToCart('Galactic Star Chart', 1299.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Wormhole Navigation System</h3>
+                <p>Advanced AI-powered system for safe wormhole traversal. Includes quantum stabilization protocols.</p>
+                <p class="product-price">$45,999.99</p>
+                <button class="add-to-cart" onclick="addToCart('Wormhole Navigation System', 45999.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Pulsar Positioning Beacon</h3>
+                <p>Uses pulsar signals for precise galactic positioning. Accurate to within 1 kilometer across the galaxy.</p>
+                <p class="product-price">$8,799.99</p>
+                <button class="add-to-cart" onclick="addToCart('Pulsar Positioning Beacon', 8799.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Andromeda Approach Charts</h3>
+                <p>Detailed navigation charts for the Andromeda Galaxy. Essential for intergalactic expeditions.</p>
+                <p class="product-price">$3,599.99</p>
+                <button class="add-to-cart" onclick="addToCart('Andromeda Approach Charts', 3599.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Quantum Compass</h3>
+                <p>Points toward the nearest habitable planet. Works across multiple dimensions and parallel universes.</p>
+                <p class="product-price">$12,499.99</p>
+                <button class="add-to-cart" onclick="addToCart('Quantum Compass', 12499.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Hyperdrive Route Calculator</h3>
+                <p>Calculates optimal hyperspace jumps avoiding black holes, supernovas, and hostile territories.</p>
+                <p class="product-price">$22,999.99</p>
+                <button class="add-to-cart" onclick="addToCart('Hyperdrive Route Calculator', 22999.99)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('spaceCart')) || [];
+let addedItems = new Set();
+
+function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+}
+
+function addToCart(name, price) {
+    const itemKey = `${name}-${price}`;
+    
+    if (addedItems.has(itemKey)) {
+        return;
+    }
+    
+    cart.push({name, price, id: Date.now()});
+    addedItems.add(itemKey);
+    localStorage.setItem('spaceCart', JSON.stringify(cart));
+    
+    const buttons = document.querySelectorAll('.add-to-cart');
+    buttons.forEach(btn => {
+        if (btn.onclick.toString().includes(name)) {
+            btn.textContent = 'Added to Cart';
+            btn.style.background = '#666';
+            btn.disabled = true;
+        }
+    });
+    
+    updateCartCount();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    cart.forEach(item => {
+        addedItems.add(`${item.name}-${item.price}`);
+        const buttons = document.querySelectorAll('.add-to-cart');
+        buttons.forEach(btn => {
+            if (btn.onclick.toString().includes(item.name)) {
+                btn.textContent = 'Added to Cart';
+                btn.style.background = '#666';
+                btn.disabled = true;
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0f2027, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .login-card {
+      width: 380px;
+      padding: 40px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .login-card h1 { text-align: center; margin-bottom: 8px; }
+    .login-card p { text-align: center; opacity: 0.75; margin-bottom: 32px; }
+
+    .field { position: relative; margin-bottom: 24px; }
+    .field input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      outline: none;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+    .field label {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0.6;
+      transition: all 0.3s;
+    }
+    .field input:focus,
+    .field input:not(:placeholder-shown) { border-color: #00f2ff; }
+    .field input:focus + label,
+    .field input:not(:placeholder-shown) + label {
+      top: -8px; font-size: 0.7rem; opacity: 1; background: #000; padding: 0 6px;
+    }
+
+    .login-btn {
+      width: 100%; padding: 14px; border-radius: 14px; border: none;
+      cursor: pointer; background: linear-gradient(135deg, #00f2ff, #ff00c8);
+      color: #000; font-weight: 700; font-size: 1rem; overflow: hidden; position: relative;
+    }
+    .login-btn span { position: relative; z-index: 1; }
+
+    .extra { display: flex; justify-content: space-between; margin-top: 20px; font-size: 0.8rem; opacity: 0.75; }
+    .extra a { color: #00f2ff; text-decoration: none; }
+
+    .success { display: none; text-align: center; font-size: 1.2rem; margin-top: 20px; color: #00ffae; }
+  </style>
+</head>
+<body>
+  <div class="login-card" id="card">
+    <h1>Secure Access</h1>
+    <p>Authenticate to continue</p>
+
+    <div class="field">
+      <input type="text" id="user" required placeholder=" " />
+      <label>Username</label>
+    </div>
+
+    <div class="field">
+      <input type="password" id="pass" required placeholder=" " />
+      <label>Password</label>
+    </div>
+
+    <button class="login-btn" id="loginBtn"><span>Login</span></button>
+
+    <div class="extra">
+      <a href="#">Forgot Password?</a>
+      <a href="#">Create Account</a>
+    </div>
+
+    <div class="success" id="success">✔ Access Granted</div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Animate login card
+    anime({ targets: '.login-card', opacity: [0,1], translateY: [40,0], easing: 'easeOutExpo', duration: 1200 });
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const card = document.getElementById('card');
+      const success = document.getElementById('success');
+
+      anime({ targets: card, scale: [1,0.96,1], duration: 400, easing: 'easeInOutQuad' });
+
+      setTimeout(() => {
+        success.style.display = 'block';
+        anime({ targets: success, opacity: [0,1], translateY: [10,0], duration: 600, easing: 'easeOutExpo' });
+      }, 500);
+    });
+  </script>
+</body>
+</html>

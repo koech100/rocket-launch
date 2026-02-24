@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sierra Springs Hotels - Luxury Comfort & Natural Serenity</title>
+    <meta name="description" content="Experience luxury and comfort at Sierra Springs Hotels. 4.2/5 stars with 320+ reviews. Book your perfect getaway today.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Sierra Springs Hotels</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sierra Springs Hotels</h1>
+            <div class="rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="rating-text">4.2/5 (320 reviews)</span>
+            </div>
+            <p class="tagline">Where luxury meets nature's tranquility</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">Check Availability</button>
+                <button class="btn-secondary">Book Now</button>
+            </div>
+        </div>
+        <div class="hero-booking">
+            <div class="booking-form">
+                <div class="form-group">
+                    <label>Check-in</label>
+                    <input type="date" id="checkin">
+                </div>
+                <div class="form-group">
+                    <label>Check-out</label>
+                    <input type="date" id="checkout">
+                </div>
+                <div class="form-group">
+                    <label>Guests</label>
+                    <select id="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                    </select>
+                </div>
+                <button class="btn-search">Search Rooms</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Sierra Springs Hotels</h2>
+                <p>Experience unparalleled hospitality in a serene natural setting</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Premium Hospitality Since 2010</h3>
+                    <p>Sierra Springs Hotels offers a perfect blend of luxury and natural beauty. Our commitment to exceptional service and guest satisfaction has earned us a 4.2-star rating from over 320 satisfied guests.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <span>Award-winning service</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <span>Eco-friendly practices</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>Complimentary WiFi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Lobby">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="rooms">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rooms & Suites</h2>
+                <p>Choose from our carefully designed accommodations</p>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Standard Room">
+                    <div class="room-info">
+                        <h3>Standard Room</h3>
+                        <p>Comfortable and elegant with modern amenities</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> Queen Bed</span>
+                            <span><i class="fas fa-bath"></i> Private Bath</span>
+                            <span><i class="fas fa-tv"></i> Smart TV</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$129/night</span>
+                            <span class="cancellation">Free cancellation</span>
+                        </div>
+                        <button class="btn-book">Book Now</button>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Deluxe Suite">
+                    <div class="room-info">
+                        <h3>Deluxe Suite</h3>
+                        <p>Spacious suite with separate living area</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-couch"></i> Living Area</span>
+                            <span><i class="fas fa-mountain"></i> Mountain View</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$199/night</span>
+                            <span class="cancellation">Free cancellation</span>
+                        </div>
+                        <button class="btn-book">Book Now</button>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Presidential Suite">
+                    <div class="room-info">
+                        <h3>Presidential Suite</h3>
+                        <p>Ultimate luxury with premium amenities</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-hot-tub"></i> Private Jacuzzi</span>
+                            <span><i class="fas fa-concierge-bell"></i> Butler Service</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$349/night</span>
+                            <span class="cancellation">Free cancellation</span>
+                        </div>
+                        <button class="btn-book">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>Discover the beauty of Sierra Springs Hotels</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hotel Exterior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pool Area">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Restaurant">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Spa">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Conference Room">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Garden View">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Guest Reviews</h2>
+                <div class="overall-rating">
+                    <div class="rating-score">4.2</div>
+                    <div class="rating-details">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>Based on 320 reviews</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Sarah Johnson</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <span class="review-date">2 weeks ago</span>
+                    </div>
+                    <p>"Exceptional service and beautiful rooms. The staff went above and beyond to make our stay memorable. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Michael Chen</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <span class="review-date">1 month ago</span>
+                    </div>
+                    <p>"Great location and clean facilities. Perfect for business travel. The conference rooms are well-equipped."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Emily Rodriguez</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <span class="review-date">3 weeks ago</span>
+                    </div>
+                    <p>"Peaceful atmosphere and excellent amenities. The spa services were outstanding. Will definitely return!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Location & Directions</h2>
+                <p>Conveniently located with easy access to local attractions</p>
+            </div>
+            <div class="location-content">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.123456789!2d35.33943285554462!3d-0.7872580262129477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwNDcnMTQuMSJTIDM1wrAyMCcyMS45IkU!5e0!3m2!1sen!2ske!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="location-info">
+                    <h3>Sierra Springs Hotels</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Sierra Springs, Nakuru County, Kenya</p>
+                    <button class="btn-directions">Get Directions</button>
+                    <div class="nearby-attractions">
+                        <h4>Nearby Attractions</h4>
+                        <ul>
+                            <li><i class="fas fa-mountain"></i> Mount Kenya - 45 km</li>
+                            <li><i class="fas fa-tree"></i> Aberdare National Park - 25 km</li>
+                            <li><i class="fas fa-water"></i> Lake Nakuru - 30 km</li>
+                            <li><i class="fas fa-plane"></i> Nyeri Airport - 20 km</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch for reservations and inquiries</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>reservations@sierrasprings.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Front Desk</h4>
+                            <p>24/7 Available</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sierra Springs Hotels</h3>
+                    <p>Where luxury meets nature's tranquility</p>
+                    <div class="footer-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span>4.2/5 (320 reviews)</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Room Service</a></li>
+                        <li><a href="#">Spa & Wellness</a></li>
+                        <li><a href="#">Conference Rooms</a></li>
+                        <li><a href="#">Concierge</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sierra Springs Hotels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
